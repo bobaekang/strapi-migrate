@@ -9,7 +9,7 @@ Prerequisites to use this program include:
 - Node.js and NPM
 - Two Strapi servers with
   - Identical content types setup
-  - Public access to all content types and uploads
+  - Authenticated users with access to all content types and uploads
   - Graphql plugin installed
 
 ## Adopt this repo for your own use case
@@ -20,7 +20,7 @@ Therefore, with some custom changes to `src/*.js` and `src/queries/*.js` scripts
 
 ## Key files
 
-- `.env`: Stores the URLs for source and target Strapi servers to be used as environment variables.
+- `.env`: Stores the URL and authentication information for source and target Strapi servers to be used as environment variables.
 - `main.js`: A script to run the program (this is what the `npm run start` command executes).
 - `src/getDataFromSource.js`: A module script to get data for basic field types (no relations or uploads) of all content types from the source Strapi server.
 - `src/postDataToTarget.js`: A module script to post data for basic field types (no relations or uploads) of all content types to the target Strapi server.
@@ -44,12 +44,16 @@ npm install
 
 3. Have both Strapi servers running
 
-4. Edit `.env` variables:
+4. Assign values to `.env` variables:
 
-- `URL_API_OLD`: URL for the source Strapi server with data (default value: `http:localhost:1337`)
-- `URL_API_NEW`: URL for the Target Strapi server (default value: `http:localhost:1339`)
+- `API_OLD_URL`: URL for the source Strapi server with data
+- `API_OLD_ID`: Identifer of the authenticated user with GET and POST access for the source Strapi server
+- `API_OLD_PW`: Password of the authenticated user with GET and POST access for the source Strapi server
+- `API_NEW_URL`: URL for the Target Strapi server
+- `API_NEW_ID`: Identifer of the authenticated user with GET and POST access for the target Strapi server
+- `API_NEW_PW`: Password of the authenticated user with GET and POST access for the target Strapi server
 
-5. (optioanl) Make custom changes as needed to the following files:
+5. Make custom changes as needed to the following files (default is based on the ICJIA Research Hub project):
 
 ```
 main.js
