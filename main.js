@@ -14,7 +14,9 @@ const transferAllUploads = require("./src/transferAllUploads");
 const main = async () => {
   require("dotenv").config();
 
+  console.log("Creating an axios client for source:", process.env.API_OLD_URL);
   const sourceClient = axios.create({ baseURL: process.env.API_OLD_URL });
+  console.log("Creating an axios client for target:", process.env.API_NEW_URL);
   const targetClient = axios.create({ baseURL: process.env.API_NEW_URL });
 
   // authenticate clients
