@@ -14,11 +14,7 @@ const postData = async (client, data) => {
     return props;
   });
   const articles = data.articles.map(el => {
-    const { reportpdf, slidespdf, apps, authors, datasets, ...props } = el;
-    return props;
-  });
-  const authors = data.authors.map(el => {
-    const { articles, ...props } = el;
+    const { reportpdf, slidespdf, apps, datasets, ...props } = el;
     return props;
   });
   const datasets = data.datasets.map(el => {
@@ -28,7 +24,6 @@ const postData = async (client, data) => {
 
   await postItems(client, apps, "apps");
   await postItems(client, articles, "articles");
-  await postItems(client, authors, "authors");
   await postItems(client, datasets, "datasets");
 };
 

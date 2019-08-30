@@ -24,7 +24,6 @@ const setAllRelations = async (client, data) => {
     "apps",
     "datasets"
   );
-  await setRelations(client, articles, "articles", "authors");
   await setRelations(
     client,
     articles.filter(el => el.datasets.length),
