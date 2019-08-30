@@ -14,7 +14,7 @@ const postData = async (client, data) => {
     return props;
   });
   const articles = data.articles.map(el => {
-    const { reportpdf, slidespdf, apps, datasets, ...props } = el;
+    const { mainfile, extrafile, apps, datasets, ...props } = el;
     return props;
   });
   const datasets = data.datasets.map(el => {

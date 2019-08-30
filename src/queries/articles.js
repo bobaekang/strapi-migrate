@@ -1,37 +1,34 @@
 "use strict";
 
 module.exports = `query {
-  articles {
-    title
+  articles (sort: "date:asc") {
     status
-    external
+    title
     slug
     date
-    type
+    external
     categories
     tags
+    authors
     splash
     thumbnail
     images
     abstract
     markdown
+    funding
     citation
     doi
-    funding
-    reportpdf {
+    mainfile {
       name
       hash
       ext
     }
-    slidespdf {
+    extrafile {
       name
       hash
       ext
     }
     apps {
-      title
-    }
-    authors {
       title
     }
     datasets {

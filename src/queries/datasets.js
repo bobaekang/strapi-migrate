@@ -1,25 +1,22 @@
 "use strict";
 
 module.exports = `query {
-  datasets {
-    title
+  datasets (sort: "date:asc") {
     status
-    external
+    title
     slug
     date
+    external
     categories
     tags
     sources
     unit
-    agegroup
     timeperiod
     description
     notes
     variables
-    citation
     funding
-    datacsv
-    datafilename
+    citation
     datafile {
       name
       hash

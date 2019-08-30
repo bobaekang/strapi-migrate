@@ -27,8 +27,11 @@ const transferAllUploads = async (sourceClient, targetClient, data) => {
     });
   };
 
-  const articleUploadFields = ["reportpdf"];
+  const articleUploadFields = ["mainfile", "extrafile"];
   await uploadsHelper("articles", articleUploadFields);
+
+  const datasetUploadFields = ["datafile"];
+  await uploadsHelper("datasets", datasetUploadFields);
 };
 
 module.exports = transferAllUploads;

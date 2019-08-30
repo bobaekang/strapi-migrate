@@ -1,20 +1,20 @@
 "use strict";
 
 module.exports = `query {
-  apps {
-    title
+  apps (sort: "date:asc") {
     status
-    external
+    title
     slug
     date
+    external
     categories
     tags
-    image
     contributors
+    image
     description
     url
-    citation
     funding
+    citation
     articles {
       title
     }
